@@ -1,0 +1,24 @@
+{
+  "name": "nextjs",
+  "version": "4.0.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "latest",
+    "@material-ui/icons": "^4.11.2",
+    "clsx": "latest",
+    "formik": "^2.2.6",
+    "next": "latest",
+    "prop-types": "latest",
+    "puppeteer": "^5.5.0",
+    "react": "latest",
+    "react-dom": "latest",
+    "uuid": "^8.3.2",
+    "yup": "^0.32.8"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
+  }
+}
