@@ -38,10 +38,10 @@ USER pptruser
 
 WORKDIR /home/pptruser/app
 
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+COPY package.json package-lock.lock ./
+RUN npm install
 
 COPY . .
 
-RUN yarn build
-CMD [ "yarn", "start" ]
+RUN npm run build
+CMD [ "npm", "run", "start" ]
