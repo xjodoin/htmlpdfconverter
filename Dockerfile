@@ -38,7 +38,7 @@ USER pptruser
 
 WORKDIR /home/pptruser/app
 
-COPY package.json package-lock.lock ./
+COPY package.json package-lock.json ./
 RUN npm install
 
 COPY . .
