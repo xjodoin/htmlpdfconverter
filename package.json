@@ -6,6 +6,8 @@
     "@material-ui/core": "latest",
     "@material-ui/icons": "^4.11.2",
     "clsx": "latest",
+    "cross-env": "^7.0.2",
+    "express": "^4.17.1",
     "formik": "^2.2.6",
     "next": "latest",
     "prop-types": "latest",
@@ -16,9 +18,9 @@
     "yup": "^0.32.8"
   },
   "scripts": {
-    "dev": "next",
+    "dev": "NODE_OPTIONS='--inspect' node server.js",
     "build": "next build",
-    "start": "next start",
+    "start": "cross-env NODE_ENV=production node server.js",
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
   }
 }

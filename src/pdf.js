@@ -20,7 +20,7 @@ export async function printPDF(body, browserWSEndpoint) {
     } = body
 
     const id = uuidv4()
-    await page.pdf({path: `public/pdf/${id}.pdf`, format: format});
+    await page.pdf({path: `pdf/${id}.pdf`, format: format});
 
     await page.close();
     return id;

@@ -50,4 +50,6 @@ EXPOSE 3000
 
 USER pptruser
 
+RUN mkdir pdf
+
 CMD [ "pm2-runtime", "npm", "--", "start" ]
