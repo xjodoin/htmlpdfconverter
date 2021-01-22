@@ -10,6 +10,7 @@ export default function MyApp(props) {
     const {Component, pageProps} = props;
 
     React.useEffect(() => {
+        console.log('init with '+process.env.NEXT_PUBLIC_UA)
         initGA(process.env.NEXT_PUBLIC_UA);
         // Remove the server-side injected CSS.
         const jssStyles = document.querySelector('#jss-server-side');
