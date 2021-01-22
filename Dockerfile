@@ -33,17 +33,21 @@ RUN npm i puppeteer \
     && chown -R pptruser:pptruser /home/pptruser \
     && chown -R pptruser:pptruser /node_modules
 
-# Run everything after as non-privileged user.
-USER pptruser
+# Install PM2 globally
+RUN npm install --global pm2
 
 WORKDIR /home/pptruser/app
 
-EXPOSE 3000
+COPY ./package*.json ./
 
-COPY package.json package-lock.json ./
-RUN npm install
+RUN npm install --production
 
-COPY . .
+COPY ./ ./
 
 RUN npm run build
-CMD [ "npm", "run", "start" ]
+
+EXPOSE 3000
+
+USER pptruser
+
+CMD [ "pm2-runtime", "npm", "--", "start" ]
