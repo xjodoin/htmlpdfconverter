@@ -22,14 +22,14 @@ import {
 import {PrintOutlined} from "@material-ui/icons";
 
 const validationSchema = yup.object({
-    email: yup
-        .string('Enter your email')
-        .email('Enter a valid email')
-        .required('Email is required'),
+    // email: yup
+    //     .string('Enter your email')
+    //     .email('Enter a valid email')
+    //     .required('Email is required'),
     url: yup
         .string('Enter your website url')
         .matches(
-            /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
+            /((https?):\/\/)+(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
             'Enter correct url!'
         )
         .required('Website url is required'),
@@ -95,13 +95,13 @@ export default function Index() {
     return (
         <Container component="main" maxWidth="xs">
             <Dialog
-                open={result}
+                open={!!result}
                 onClose={handleClose}
             >
                 <DialogTitle>{"Your pdf is ready to download!"}</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        The following link is available for 24h, you also receive this link by email.
+                        The following link is available for 24h.
                     </DialogContentText>
                     <Link target={'_blank'} href={result} color="secondary">
                         Download
@@ -158,51 +158,51 @@ export default function Index() {
                                 </Select>
                             </FormControl>
                         </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                autoComplete="fname"
-                                name="firstName"
-                                variant="outlined"
-                                fullWidth
-                                id="firstName"
-                                label="First Name"
-                                value={formik.values.firstName}
-                                onChange={formik.handleChange}
-                                error={formik.touched.firstName && Boolean(formik.errors.firstName)}
-                            />
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                variant="outlined"
-                                fullWidth
-                                id="lastName"
-                                label="Last Name"
-                                name="lastName"
-                                autoComplete="lname"
-                                value={formik.values.lastName}
-                                onChange={formik.handleChange}
-                                error={formik.touched.lastName && Boolean(formik.errors.lastName)}
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                variant="outlined"
-                                fullWidth
-                                id="email"
-                                label="Email Address"
-                                name="email"
-                                autoComplete="email"
-                                value={formik.values.email}
-                                onChange={formik.handleChange}
-                                error={formik.touched.email && Boolean(formik.errors.email)}
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <FormControlLabel
-                                control={<Checkbox value="allowExtraEmails" color="primary"/>}
-                                label="I want to receive updates and marketing promotions via email."
-                            />
-                        </Grid>
+                        {/*<Grid item xs={12} sm={6}>*/}
+                        {/*    <TextField*/}
+                        {/*        autoComplete="fname"*/}
+                        {/*        name="firstName"*/}
+                        {/*        variant="outlined"*/}
+                        {/*        fullWidth*/}
+                        {/*        id="firstName"*/}
+                        {/*        label="First Name"*/}
+                        {/*        value={formik.values.firstName}*/}
+                        {/*        onChange={formik.handleChange}*/}
+                        {/*        error={formik.touched.firstName && Boolean(formik.errors.firstName)}*/}
+                        {/*    />*/}
+                        {/*</Grid>*/}
+                        {/*<Grid item xs={12} sm={6}>*/}
+                        {/*    <TextField*/}
+                        {/*        variant="outlined"*/}
+                        {/*        fullWidth*/}
+                        {/*        id="lastName"*/}
+                        {/*        label="Last Name"*/}
+                        {/*        name="lastName"*/}
+                        {/*        autoComplete="lname"*/}
+                        {/*        value={formik.values.lastName}*/}
+                        {/*        onChange={formik.handleChange}*/}
+                        {/*        error={formik.touched.lastName && Boolean(formik.errors.lastName)}*/}
+                        {/*    />*/}
+                        {/*</Grid>*/}
+                        {/*<Grid item xs={12}>*/}
+                        {/*    <TextField*/}
+                        {/*        variant="outlined"*/}
+                        {/*        fullWidth*/}
+                        {/*        id="email"*/}
+                        {/*        label="Email Address"*/}
+                        {/*        name="email"*/}
+                        {/*        autoComplete="email"*/}
+                        {/*        value={formik.values.email}*/}
+                        {/*        onChange={formik.handleChange}*/}
+                        {/*        error={formik.touched.email && Boolean(formik.errors.email)}*/}
+                        {/*    />*/}
+                        {/*</Grid>*/}
+                        {/*<Grid item xs={12}>*/}
+                        {/*    <FormControlLabel*/}
+                        {/*        control={<Checkbox value="allowExtraEmails" color="primary"/>}*/}
+                        {/*        label="I want to receive updates and marketing promotions via email."*/}
+                        {/*    />*/}
+                        {/*</Grid>*/}
                     </Grid>
                     <Button
                         type="submit"

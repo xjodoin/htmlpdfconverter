@@ -26,7 +26,7 @@ import ReactGA from "react-ga";
 export const initGA = UA => {
     if (UA && process.browser) {
         console.log('Initialising google analytics')
-        ReactGA.initialize(UA);
+        ReactGA.initialize("G-JS8QKT15TF");
         logPageViews();
     }
 };
