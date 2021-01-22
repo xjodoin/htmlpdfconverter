@@ -5,13 +5,17 @@ import {ThemeProvider} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '../src/theme';
 import {initGA} from "../src/analytics";
+import getConfig from 'next/config'
+
+const { publicRuntimeConfig } = getConfig()
+
 
 export default function MyApp(props) {
     const {Component, pageProps} = props;
 
     React.useEffect(() => {
-        console.log('init with '+process.env.NEXT_PUBLIC_UA)
-        initGA(process.env.NEXT_PUBLIC_UA);
+        console.log('init with '+publicRuntimeConfig.UA)
+        initGA(publicRuntimeConfig.UA);
         // Remove the server-side injected CSS.
         const jssStyles = document.querySelector('#jss-server-side');
         if (jssStyles) {
