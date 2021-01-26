@@ -1,3 +1,5 @@
+
+
 # HTML to PDF Microservice
 
 > Web page PDF rendering done right. Microservice for rendering receipts, invoices, or any content.
@@ -35,3 +37,9 @@ content to a PDF. This API does just that.
 ## Examples
 
 Try it [online](https://htmlpdfconverter.com)
+
+Licensing
+=========
+Moby is licensed under the Apache License, Version 2.0. See
+[LICENSE](https://github.com/xjodoin/htmlpdfconverter/blob/master/LICENSE) for the full
+license text.
