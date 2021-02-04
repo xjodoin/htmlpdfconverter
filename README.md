@@ -12,7 +12,7 @@
 * Single-page app (SPA) support. Waits until all network requests are finished before rendering.
 * Easy deployment to Kubernetes or any docker runtime.
 
-Usage is as simple as https://htlmpdfconverter.com?url=https://google.com. There's also a `POST /api/htmltopdf` if you prefer to send options in the body.
+Usage is as simple as [https://htlmpdfconverter.com?url=https://google.com](https://htlmpdfconverter.com?url=https://google.com). There's also a `POST /api/render` if you prefer to send options in the body.
 
 **Why?**
 

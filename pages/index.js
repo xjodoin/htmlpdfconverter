@@ -17,7 +17,7 @@ import {
     InputLabel,
     makeStyles,
     MenuItem,
-    Select
+    Select, Switch
 } from "@material-ui/core";
 import {PrintOutlined} from "@material-ui/icons";
 
@@ -70,11 +70,12 @@ export default function Index() {
             firstName: '',
             lastName: '',
             email: '',
+            landscape: false,
         },
         validationSchema: validationSchema,
         onSubmit: async (values) => {
 
-            const response = await fetch('api/htmltopdf', {
+            const response = await fetch('api/render', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -134,9 +135,9 @@ export default function Index() {
                                 error={formik.touched.url && Boolean(formik.errors.url)}
                             />
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid item xs={12} sm={6}>
                             <FormControl fullWidth className={classes.formControl}>
-                                <InputLabel id="format-label">Format</InputLabel>
+                                {/*<InputLabel id="format-label">Format</InputLabel>*/}
                                 <Select
                                     labelId="format-label"
                                     name="format"
@@ -156,6 +157,21 @@ export default function Index() {
                                     <MenuItem value={'a5'}>A5</MenuItem>
                                     <MenuItem value={'a6'}>A6</MenuItem>
                                 </Select>
+                            </FormControl>
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <FormControl fullWidth className={classes.formControl}>
+                                <FormControlLabel
+                                    control={
+                                        <Switch
+                                            checked={formik.values.landscape}
+                                            onChange={formik.handleChange}
+                                            name="landscape"
+                                            color="primary"
+                                        />
+                                    }
+                                    label="Landscape"
+                                />
                             </FormControl>
                         </Grid>
                         {/*<Grid item xs={12} sm={6}>*/}
@@ -210,8 +226,9 @@ export default function Index() {
                         variant="contained"
                         color="primary"
                         className={classes.submit}
+                        disabled={formik.isSubmitting}
                     >
-                        Generate PDF
+                        {formik.isSubmitting ? 'Processing' : 'Generate PDF'}
                     </Button>
                 </form>
             </div>

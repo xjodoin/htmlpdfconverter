@@ -15,12 +15,16 @@ export async function printPDF(body, browserWSEndpoint) {
           `
     });
 
-    const {
-        format = 'letter',
-    } = body
+    const options = {
+        format: 'letter',
+        ...body
+    };
 
     const id = uuidv4()
-    await page.pdf({path: `pdf/${id}.pdf`, format: format});
+
+    options.path = `pdf/${id}.pdf`;
+
+    await page.pdf(options);
 
     await page.close();
     return id;
