@@ -4,6 +4,7 @@ import Head from 'next/head';
 import {ThemeProvider} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '../src/theme';
+import * as timers from "timers";
 
 export default function MyApp(props) {
     const {Component, pageProps} = props;
@@ -16,11 +17,17 @@ export default function MyApp(props) {
         }
     }, []);
 
+    const pageTitle = 'Open Source HTML to PDF converter';
+    const description = 'Instantly convert web page to PDF format with this free online converter.'
+
     return (
         <React.Fragment>
             <Head>
-                <title>Open Source HTML to PDF converter</title>
+                <title>{pageTitle}</title>
                 <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width"/>
+                <meta name="description" content={description}></meta>
+                <meta property="og:title" content={pageTitle} key="ogtitle" />
+                <meta property="og:description" content={description} key="ogdesc" />
             </Head>
             <ThemeProvider theme={theme}>
                 {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}

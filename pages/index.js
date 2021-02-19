@@ -8,6 +8,7 @@ import {useFormik} from 'formik';
 import * as yup from 'yup';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import { useRouter } from 'next/router'
 import {
     Avatar,
     Checkbox, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle,
@@ -60,7 +61,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Index() {
-
     const [result, setResult] = useState('');
 
     const formik = useFormik({
